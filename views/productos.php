@@ -66,6 +66,11 @@
                                </td>
                             </tr>
                         <?php endforeach; ?>
+                        <tr id="noResults" style="display: none;">
+                            <td colspan="6" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                                🔍 No se encontraron productos que coincidan con tu búsqueda.
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -130,8 +135,9 @@
             const filter = input.value.toLowerCase();
             const table = document.querySelector('table');
             const tr = table.getElementsByTagName('tr');
+            let anyVisible = false;
 
-            for (let i = 1; i < tr.length; i++) {
+            for (let i = 1; i < tr.length - 1; i++) {
                 const td = tr[i].getElementsByTagName('td');
                 let found = false;
                 for (let j = 0; j < td.length - 1; j++) {
@@ -141,7 +147,10 @@
                     }
                 }
                 tr[i].style.display = found ? '' : 'none';
+                if (found) anyVisible = true;
             }
+
+            document.getElementById('noResults').style.display = anyVisible ? 'none' : '';
         }
 
         function filterByCategory(category, element) {
