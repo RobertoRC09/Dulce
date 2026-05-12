@@ -10,7 +10,7 @@
             <a href="?view=clientes" class="nav-link <?php echo (isset($_GET['view']) && $_GET['view'] == 'clientes') ? 'active' : ''; ?>">Clientes</a>
             <a href="?view=productos" class="nav-link <?php echo (isset($_GET['view']) && $_GET['view'] == 'productos') ? 'active' : ''; ?>">Productos</a>
             <a href="?view=pedidos" class="nav-link <?php echo (isset($_GET['view']) && $_GET['view'] == 'pedidos') ? 'active' : ''; ?>">Pedidos</a>
-            <a href="?view=logout" class="logout-btn">Salir</a>
+            <a href="?view=logout" class="logout-btn" onclick="return confirm('¿Estás seguro de que quieres salir del sistema?')">Salir</a>
         </nav>
     </div>
 </div>
@@ -23,4 +23,13 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 </script>
