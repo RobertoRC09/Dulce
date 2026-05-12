@@ -1,0 +1,112 @@
+/* 
+    Dulce Regionales - Home Dashboard Styles
+    Premium UI for "Doña Solina"
+*/
+
+.greeting {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 40px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.2);
+}
+
+.greeting h2 { font-size: 32px; margin-bottom: 10px; }
+.greeting p { opacity: 0.9; font-size: 16px; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: var(--surface);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(230, 126, 34, 0.05);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.stat-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-card .label {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.stat-card .value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.section h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.section h3::before {
+    content: '';
+    width: 6px;
+    height: 24px;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.cancelado {
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #feb2b2;
+}
+
+.status-badge.completado {
+    background: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #c6f6d5;
+}
+
+.logout-btn {
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #feb2b2;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    box-shadow: none;
+}
+
+.logout-btn:hover {
+    background: #e53e3e;
+    color: white;
+    transform: none;
+}
