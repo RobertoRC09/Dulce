@@ -8,18 +8,7 @@
     <link rel="stylesheet" href="assetes/css/style_home.css?v=2">
 </head>
 <body>
-    <div class="navbar">
-        <h1>🍯 Dulce Regionales</h1>
-        <div class="user-info">
-            <nav style="display: flex; gap: 20px; align-items: center;">
-                <a href="?view=home" class="nav-link <?php echo ($_GET['view'] == 'home' || !isset($_GET['view'])) ? 'active' : ''; ?>">Dashboard</a>
-                <a href="?view=clientes" class="nav-link <?php echo ($_GET['view'] == 'clientes') ? 'active' : ''; ?>">Clientes</a>
-                <a href="?view=productos" class="nav-link <?php echo ($_GET['view'] == 'productos') ? 'active' : ''; ?>">Productos</a>
-                <a href="?view=pedidos" class="nav-link <?php echo ($_GET['view'] == 'pedidos') ? 'active' : ''; ?>">Pedidos</a>
-                <a href="?view=logout" class="logout-btn">Salir</a>
-            </nav>
-        </div>
-    </div>
+    <?php include 'views/layout/navbar.php'; ?>
 
     <div class="container">
         <div class="greeting">

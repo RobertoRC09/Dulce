@@ -8,24 +8,16 @@
     <link rel="stylesheet" href="assetes/css/style_cliente.css?v=2">
 </head>
 <body>
-    <div class="navbar">
-        <h1>🍯 Dulce Regionales</h1>
-        <div class="user-info">
-            <nav style="display: flex; gap: 20px; align-items: center;">
-                <a href="?view=home" class="nav-link <?php echo ($_GET['view'] == 'home') ? 'active' : ''; ?>">Dashboard</a>
-                <a href="?view=clientes" class="nav-link <?php echo ($_GET['view'] == 'clientes') ? 'active' : ''; ?>">Clientes</a>
-                <a href="?view=productos" class="nav-link <?php echo ($_GET['view'] == 'productos') ? 'active' : ''; ?>">Productos</a>
-                <a href="?view=pedidos" class="nav-link <?php echo ($_GET['view'] == 'pedidos') ? 'active' : ''; ?>">Pedidos</a>
-                <a href="?view=logout" class="logout-btn">Salir</a>
-            </nav>
-        </div>
-    </div>
+    <?php include 'views/layout/navbar.php'; ?>
 
     <div class="container">
         <div class="section">
             <div class="section-header">
                 <h3>👥 Gestión de Clientes</h3>
-                <button class="btn-primary" onclick="toggleModal('modalCliente')">+ Nuevo Cliente</button>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="searchClient" placeholder="🔍 Buscar cliente..." style="width: 250px; padding: 8px 15px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px;" onkeyup="filterTable()">
+                    <button class="btn-primary" onclick="toggleModal('modalCliente')">+ Nuevo Cliente</button>
+                </div>
             </div>
 
             <div class="table-wrapper">
@@ -114,6 +106,25 @@
         function toggleModal(id) {
             const modal = document.getElementById(id);
             modal.classList.toggle('active');
+        }
+
+        function filterTable() {
+            const input = document.getElementById('searchClient');
+            const filter = input.value.toLowerCase();
+            const table = document.querySelector('table');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td');
+                let found = false;
+                for (let j = 0; j < td.length - 1; j++) {
+                    if (td[j].textContent.toLowerCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+                tr[i].style.display = found ? '' : 'none';
+            }
         }
     </script>
 </body>
