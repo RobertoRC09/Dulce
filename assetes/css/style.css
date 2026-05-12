@@ -157,4 +157,19 @@ input:focus { border-color: var(--primary); outline: none; background: #fff; box
 }
 .login-card h1 { font-size: 28px; color: var(--primary-dark); margin-bottom: 15px; }
 .login-card p { color: var(--text-muted); margin-bottom: 35px; }
-.btn-block { width: 100%; justify-content: center; padding: 15px; font-size: 16px; }
+/* --- Chips & Badges --- */
+.filter-container { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.chip { 
+    padding: 8px 18px; 
+    border-radius: 20px; 
+    background: #f1f5f9; 
+    color: #475569; 
+    font-size: 13px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+.chip:hover { background: #e2e8f0; }
+.chip.active { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(230,126,34,0.2); }
+

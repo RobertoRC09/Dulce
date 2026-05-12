@@ -13,7 +13,19 @@
         <div class="section">
             <div class="section-header">
                 <h3>🎁 Inventario de Productos</h3>
-                <button class="btn-primary" onclick="toggleModal('modalProducto')">+ Nuevo Producto</button>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="searchProduct" placeholder="🔍 Buscar producto..." style="width: 250px; padding: 8px 15px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px;" onkeyup="filterProducts()">
+                    <button class="btn-primary" onclick="toggleModal('modalProducto')">+ Nuevo Producto</button>
+                </div>
+            </div>
+
+            <div class="filter-container">
+                <div class="chip active" onclick="filterByCategory('all', this)">Todos</div>
+                <div class="chip" onclick="filterByCategory('Dulces', this)">Dulces</div>
+                <div class="chip" onclick="filterByCategory('Conservas', this)">Conservas</div>
+                <div class="chip" onclick="filterByCategory('Bebidas', this)">Bebidas</div>
+                <div class="chip" onclick="filterByCategory('Textiles', this)">Textiles</div>
+                <div class="chip" onclick="filterByCategory('Artesanías', this)">Artesanías</div>
             </div>
 
             <div class="table-wrapper">
@@ -106,6 +118,43 @@
         function toggleModal(id) {
             const modal = document.getElementById(id);
             modal.classList.toggle('active');
+        }
+
+        function filterProducts() {
+            const input = document.getElementById('searchProduct');
+            const filter = input.value.toLowerCase();
+            const table = document.querySelector('table');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td');
+                let found = false;
+                for (let j = 0; j < td.length - 1; j++) {
+                    if (td[j].textContent.toLowerCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+                tr[i].style.display = found ? '' : 'none';
+            }
+        }
+
+        function filterByCategory(category, element) {
+            // Actualizar UI de los chips
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+
+            const table = document.querySelector('table');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const catCell = tr[i].getElementsByTagName('td')[1]; // Categoría está en la 2da columna
+                if (category === 'all' || catCell.textContent.trim() === category) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
         }
     </script>
 </body>
