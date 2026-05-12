@@ -109,6 +109,8 @@ th {
     border-bottom: 2px solid var(--border);
 }
 td { padding: 18px 15px; border-bottom: 1px solid var(--border); font-size: 14px; }
+tr:hover td { background-color: #fcfcfc; }
+
 
 /* --- Modals --- */
 .modal {
@@ -172,4 +174,16 @@ input:focus { border-color: var(--primary); outline: none; background: #fff; box
 }
 .chip:hover { background: #e2e8f0; }
 .chip.active { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(230,126,34,0.2); }
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.status-badge.cancelado { background: #fff5f5; color: #e53e3e; border: 1px solid #feb2b2; }
+.status-badge.completado { background: #f0fff4; color: #2f855a; border: 1px solid #c6f6d5; }
+.status-badge.pendiente { background: #fffaf0; color: #c05621; border: 1px solid #feebc8; }
+
 

@@ -48,7 +48,11 @@
                                <td><?php echo htmlspecialchars($prod['region_origen']); ?></td>
                                <td><strong>$<?php echo number_format($prod['precio'], 2); ?></strong></td>
                                <td>
-                                   <span class="status-badge <?php echo $prod['stock'] < 10 ? 'cancelado' : 'completado'; ?>">
+                                   <span class="status-badge <?php 
+                                       if ($prod['stock'] < 10) echo 'cancelado'; 
+                                       elseif ($prod['stock'] < 30) echo 'pendiente'; 
+                                       else echo 'completado'; 
+                                   ?>">
                                        <?php echo $prod['stock']; ?> unidades
                                    </span>
                                </td>
@@ -148,12 +152,19 @@
             const tr = table.getElementsByTagName('tr');
 
             for (let i = 1; i < tr.length; i++) {
-                const catCell = tr[i].getElementsByTagName('td')[1]; // Categoría está en la 2da columna
+                const catCell = tr[i].getElementsByTagName('td')[1];
                 if (category === 'all' || catCell.textContent.trim() === category) {
                     tr[i].style.display = '';
                 } else {
                     tr[i].style.display = 'none';
                 }
+            }
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
             }
         }
     </script>
