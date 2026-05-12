@@ -16,6 +16,7 @@
                 <h3>👥 Gestión de Clientes</h3>
                 <div style="display: flex; gap: 10px;">
                     <input type="text" id="searchClient" placeholder="🔍 Buscar cliente..." style="width: 250px; padding: 8px 15px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px;" onkeyup="filterTable()">
+                    <button class="btn-secondary" onclick="window.print()" title="Imprimir Lista">🖨️</button>
                     <button class="btn-primary" onclick="toggleModal('modalCliente')">+ Nuevo Cliente</button>
                 </div>
             </div>
@@ -127,5 +128,8 @@
             }
         }
     </script>
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px;">
+        &copy; <?php echo date('Y'); ?> Dulce Regionales: Doña Solina. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

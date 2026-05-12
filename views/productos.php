@@ -15,6 +15,7 @@
                 <h3>🎁 Inventario de Productos</h3>
                 <div style="display: flex; gap: 10px;">
                     <input type="text" id="searchProduct" placeholder="🔍 Buscar producto..." style="width: 250px; padding: 8px 15px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px;" onkeyup="filterProducts()">
+                    <button class="btn-secondary" onclick="window.print()" title="Imprimir Inventario">🖨️</button>
                     <button class="btn-primary" onclick="toggleModal('modalProducto')">+ Nuevo Producto</button>
                 </div>
             </div>
@@ -168,5 +169,8 @@
             }
         }
     </script>
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px;">
+        &copy; <?php echo date('Y'); ?> Dulce Regionales: Doña Solina. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

@@ -186,4 +186,17 @@ input:focus { border-color: var(--primary); outline: none; background: #fff; box
 .status-badge.completado { background: #f0fff4; color: #2f855a; border: 1px solid #c6f6d5; }
 .status-badge.pendiente { background: #fffaf0; color: #c05621; border: 1px solid #feebc8; }
 
+/* --- Print Styles --- */
+@media print {
+    .navbar, .nav-link, .logout-btn, .btn-primary, .btn-secondary, .filter-container, .form-group, #searchProduct, #searchClient, .modal, .section-header button, input {
+        display: none !important;
+    }
+    .container { margin: 0; width: 100%; max-width: 100%; }
+    .section { box-shadow: none; border: none; padding: 0; }
+    table { border: 1px solid #eee; }
+    th { background: #eee !important; color: black !important; }
+    .status-badge { border: 1px solid #ccc !important; }
+}
+
+
 
